@@ -1,15 +1,21 @@
-CREATE TABLE supplier (
-    SNO TEXT PRIMARY KEY,
-    SNAME TEXT,
-    STATUS INTEGER,
-    CITY TEXT
+CREATE TABLE employee (
+    EMP_ID INTEGER PRIMARY KEY,
+    EMP_NAME TEXT,
+    DEPARTMENT TEXT,
+    ISSUE TEXT
 );
 
-INSERT INTO supplier (SNO, SNAME, STATUS, CITY) VALUES
-('S1', 'Smith', 20, 'London'),
-('S2', 'Jones', 10, 'Paris'),
-('S3', 'Blake', 30, 'Paris'),
-('S4', 'Clarke', 20, 'London'),
-('S5', 'Adams', 30, 'Athens');
+INSERT INTO employee 
+(EMP_ID, EMP_NAME, DEPARTMENT, ISSUE)
+VALUES
+(101, 'Tarun', 'Fraud Detection', 'Investigator'),
+(102, 'Rahul Sharma', 'Finance', 'Unauthorized Access'),
+(103, 'Neha Verma', 'Operations', 'Fake Invoice'),
+(104, 'Priya Singh', 'IT', 'Data Leak');
 
-SELECT * FROM supplier;
+SELECT * FROM employee;
+
+-- Find suspicious employees
+SELECT EMP_NAME, DEPARTMENT, ISSUE
+FROM employee
+WHERE ISSUE != 'Investigator';
